@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.example.demo.utils.MyMapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/seckill"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <!-- 对于生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="com.example.demo.pojo" targetProject="src/main/java"/>
+
+		<!-- 对于生成的mapper所在目录 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+		<!-- 配置mapper对应的java映射 -->
+        <javaClientGenerator targetPackage="com.example.demo.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+
+		<!-- <table tableName="data_dict"></table>
+		<table tableName="demo_item"></table>
+		<table tableName="sys_permission"></table>
+		<table tableName="sys_role"></table>
+		<table tableName="sys_role_permission"></table>
+		<table tableName="sys_user"></table>
+		<table tableName="sys_user_role"></table>
+		<table tableName="t_test"></table> -->
+		<table tableName="seckill"></table>
+		<table tableName="success_killed"></table>
+		 
+    </context>
+</generatorConfiguration>
